@@ -1,3 +1,5 @@
+#!/usr/bin/python2.7
+
 '''
 Mysql Analytic Tool
 
@@ -5,7 +7,7 @@ MAT is a simple tool that created by Python language which used to analyze Mysql
 
 This tool is a prototype, may contain several bugs and lack of features. 
 
-Contributor - Anson Tan
+Contributed by Anson Tan
 '''
 
 import os
@@ -13,17 +15,19 @@ import sys
 import fileinput
 
 def man():
-	print '\nMysql Analytic tool command list and description'
-	print 'Command			- Description\n'
-	print 'show binary filename	- show binary file'
-	print 'show log		- show log files'
-	print 'show history		- show mysql history'
-	print 'show error		- show error log'
-	print 'show query		- show general query file'
-	print 'analyze binary filename	- analyze binary file, such as analyze binary mysql000.000'
-	print 'create mysql		- create mysql image file'
-	print 'mount mysql.iso		- mount an image file called mysql.iso'
-	print 'unmount mysql.iso	- unmount an image file called mysql.iso\n'
+	print '\nMysql Analytic tool command list and description\n'
+	print '-----------------------------------------------------'
+	print '        Command		|           Description'
+	print '-----------------------------------------------------'
+	print 'show binary	| show binary file'
+	print 'show log		| show log files'
+	print 'show history		| show mysql history'
+	print 'show error		| show error log'
+	print 'show query		| show general query file'
+	print 'analyze binary	| analyze binary file, such as analyze binary mysql000.000'
+	print 'create mysql		| create mysql image file'
+	print 'mount mysql.iso		| mount an image file called mysql.iso'
+	print 'unmount mysql.iso	| unmount an image file called mysql.iso'
 	forensic()
 		
 #command line
@@ -83,12 +87,14 @@ def forensic():
 	#mount mysql image file
 	elif option == 'mount mysql.iso':
 		os.system('sudo mkdir ~/Downloads/mysql-iso')
-		os.system('sudo mount -o loop mysql.iso ~/Downloads/mysql-iso')
+		os.system('sudo mount -o loop ~/Downloads/mysql.iso ~/Downloads/mysql-iso')
 		forensic()
 
 	#unmount mysql image flle
-	elif option == '':
-		os.system('sudo umount mysql-iso')
+	elif option == 'unmount mysql.iso':
+		os.system('sudo umount ~/Downloads/mysql-iso')
+		#successed then print, 2>
+		print 'ISO is successfully unmounted'
 		forensic()
 
 	elif option == 'analyze binary':
@@ -113,6 +119,8 @@ def forensic():
 	elif option == 'man':
 		man()
 
+	#save output from previous command, need global name to keep previous command. Do you want to save output from previous command? Y/N if yes then input filename
+
 	#exit program
 	elif option == 'exit':
 		###################save into a file?
@@ -126,8 +134,8 @@ def forensic():
 
 #Display menu options
 #Menu options
-print '\n*********************'
-print '       MAT'
-print 'MYSQL Analytics Tool'
-print '*********************'
+print '***********************************'
+print '*                MAT              *'
+print '*     MYSQL Analytic Tool v1.0    *'
+print '***********************************'
 forensic()
