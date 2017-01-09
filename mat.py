@@ -133,7 +133,7 @@ def forensic():
 		forensic()
 
 	elif option == 'version':
-		print 'Mysql Analytic Tool v1.0, contributed by Anson Tan'
+		print 'MYSQL Analytic Tool v1.1, contributed by Anson Tan'
 		forensic()
 
 	#save output from previous command, need global name to keep previous command. Do you want to save output from previous command? Y/N if yes then input filename
@@ -153,6 +153,6 @@ def forensic():
 #Menu options
 print '***********************************'
 print '*                MAT              *'
-print '*     MYSQL Analytic Tool v1.0    *'
+print '*     MYSQL Analytic Tool v1.1    *'
 print '***********************************'
 forensic()
