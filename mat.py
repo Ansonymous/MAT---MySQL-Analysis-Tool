@@ -19,15 +19,18 @@ def man():
 	print '-----------------------------------------------------'
 	print '        Command		|           Description'
 	print '-----------------------------------------------------'
-	print 'show binary	| show binary file'
+	print 'show binary		| show binary file'
 	print 'show log		| show log files'
 	print 'show history		| show mysql history'
 	print 'show error		| show error log'
 	print 'show query		| show general query file'
-	print 'analyze binary	| analyze binary file, such as analyze binary mysql000.000'
+	print 'analyze binary		| analyze binary file, such as analyze binary mysql000.000'
 	print 'create mysql		| create mysql image file'
 	print 'mount mysql.iso		| mount an image file called mysql.iso'
 	print 'unmount mysql.iso	| unmount an image file called mysql.iso'
+	print 'save output		| save previous output'
+	print 'version			| show tool version'
+	print 'clear			| clear screen'
 	forensic()
 		
 #command line
@@ -77,6 +80,8 @@ def forensic():
 		if con == 'Yes':
 			os.system('sudo mkisofs -o ~/Downloads/mysql.iso /var/log/mysql')
 			print '\n'
+		
+		########### calculate Hash value after created image
 
 		elif con == 'R':
 			forensic()
@@ -85,6 +90,7 @@ def forensic():
 			forensic()
 
 	#mount mysql image file
+		######### Calculate hash value before mount image
 	elif option == 'mount mysql.iso':
 		os.system('sudo mkdir ~/Downloads/mysql-iso')
 		os.system('sudo mount -o loop ~/Downloads/mysql.iso ~/Downloads/mysql-iso')
@@ -115,15 +121,26 @@ def forensic():
 		#Display menu options
 		forensic()
 
+	############ restore mysql file?
+
 	#mat command list and description
 	elif option == 'man':
 		man()
+	
+	#clear screen
+	elif option == 'clear':
+		os.system('clear')
+		forensic()
+
+	elif option == 'version':
+		print 'Mysql Analytic Tool v1.0, contributed by Anson Tan'
+		forensic()
 
 	#save output from previous command, need global name to keep previous command. Do you want to save output from previous command? Y/N if yes then input filename
+	#elif option == 'save output':
 
 	#exit program
 	elif option == 'exit':
-		###################save into a file?
 		sys.exit(1)
 
 	#return to forensic function after accepted invalid input
