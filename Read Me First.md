@@ -10,4 +10,5 @@ Type 'man' in the tool will show all commands and descriptions.
 
 # Warning
 This is a prototype, may contain several bugs and lack of features. I'm not responsible for your lost, please be careful.
+Tool fully works only if binary file enable
 Contributed by Anson Tan
