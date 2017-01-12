@@ -8,6 +8,12 @@ Copy paste all files into /usr/bin/, this will allow you to run file directly wi
 # MAT tutorial
 Type 'man' in the tool will show all commands and descriptions. 
 
+# Updated
+Released v1.1
+Added ‘man’ command which show command list and description for each command. 
+Added ‘version’ command which show tool’s version
+Added ‘clear’ command which clear terminal screen and return to main menu
+
 # Warning
 This is a prototype, may contain several bugs and lack of features. I'm not responsible for your lost, please be careful.
 Tool fully works only if binary file enable
