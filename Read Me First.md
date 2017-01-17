@@ -9,12 +9,12 @@ Copy paste all files into /usr/bin/, this will allow you to run file directly wi
 Type 'man' in the tool will show all commands and descriptions. 
 
 # Updated
-- Released v1.1
+- January 10 Released v1.1
 - Added ‘man’ command which show command list and description for each command. 
 - Added ‘version’ command which show tool’s version
 - Added ‘clear’ command which clear terminal screen and return to main menu
 
-- Release v1.2
+- January 16 Release v1.2
 - Added function for calculate hash value after creating image file and before mount image, MD5
 - Added some shortcut commands for most of commands, such as “an bin” for “analyze binary“, “s log” for “show logs”, “m  mysql.iso” for “mount mysql.iso”. 
 - Added shortcut commands in “man” command list
