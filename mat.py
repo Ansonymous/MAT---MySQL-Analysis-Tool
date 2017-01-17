@@ -179,7 +179,7 @@ def forensic():
 		forensic()
 
 	elif option == 'version':
-		print 'MYSQL Analytic Tool v1.1, contributed by Anson Tan'
+		print 'MYSQL Analytic Tool v1.2, contributed by Anson Tan'
 		forensic()
 
 	#save output to a file from previous command
@@ -208,6 +208,6 @@ def forensic():
 #Menu options
 print '***********************************'
 print '*                MAT              *'
-print '*     MYSQL Analytic Tool v1.1    *'
+print '*     MYSQL Analytic Tool v1.2    *'
 print '***********************************'
 forensic()
