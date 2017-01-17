@@ -13,7 +13,13 @@ Type 'man' in the tool will show all commands and descriptions.
 - Added ‘man’ command which show command list and description for each command. 
 - Added ‘version’ command which show tool’s version
 - Added ‘clear’ command which clear terminal screen and return to main menu
-- Added coloured output
+
+- Release v1.2
+- Added function for calculate hash value after creating image file and before mount image, MD5
+- Added some shortcut commands for most of commands, such as “an bin” for “analyze binary“, “s log” for “show logs”, “m  mysql.iso” for “mount mysql.iso”. 
+- Added shortcut commands in “man” command list
+C- olour print output for “analyze binary” command
+
 
 # Warning
 This is a prototype, may contain several bugs and lack of features. I'm not responsible for your lost, please be careful.
