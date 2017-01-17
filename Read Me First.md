@@ -13,6 +13,7 @@ Type 'man' in the tool will show all commands and descriptions.
 - Added ‘man’ command which show command list and description for each command. 
 - Added ‘version’ command which show tool’s version
 - Added ‘clear’ command which clear terminal screen and return to main menu
+- Added coloured output
 
 # Warning
 This is a prototype, may contain several bugs and lack of features. I'm not responsible for your lost, please be careful.
