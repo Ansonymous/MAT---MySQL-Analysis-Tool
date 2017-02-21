@@ -1,27 +1,29 @@
-# MAT - Mysql Analysis Tool
+# MAT - MySQL Analysis Tool
 
-MAT is a simple tool that used to analyze Mysql database after attacked by hackers. It is able to create image file for entire Mysql directory and analyze the log files. This tool provides fastest and easiest way to analyze Mysql database to find out which data had been modified, inserted or deleted after an attack. 
+MAT is a simple tool that used to analyze MySQL database after attacked by hackers. It is able to create image file for entire MySQL directory and analyze the log files. This tool provides fastest and easiest way to analyze MySQL database to find out which data had been modified, inserted or deleted after an attack. 
 
 # Recommended
 Copy paste all files into /usr/bin/, this will allow you to run file directly with "mat" instead of "python mat.py". Run commands - "chmod +x sum.sh", "chmod +x mat.py" for executable files. 
 
 # MAT tutorial
-Type 'man' in the tool will show all commands and descriptions. 
+Type 'man' in the tool will show all commands and descriptions. Suggest to read all commands and description before using it.
 
 # Updated
 - Released v1.1, Jan 10
-- Added ‘man’ command which show command list and description for each command. 
+- Added ‘man’ command which show command list and description for each command
 - Added ‘version’ command which show tool’s version
 - Added ‘clear’ command which clear terminal screen and return to main menu
 
 - Release v1.2, Jan 16
 - Added function for calculate hash value after creating image file and before mount image, MD5
-- Added some shortcut commands for most of commands, such as “an bin” for “analyze binary“, “s log” for “show logs”, “m  mysql.iso” for “mount mysql.iso”. 
+- Added some shortcut commands for most of commands, such as “an bin” for “analyze binary“, “s log” for “show logs”, “m  mysql.iso” for “mount mysql.iso” 
 - Added shortcut commands in “man” command list
 - Colour print output for “analyze binary” command
 
+- v1.3 will update soon
+- Added 'save output' command for saving previous output into a file
 
 # Warning
-This is a prototype, may contain several bugs and lack of features. I'm not responsible for your lost, please be careful.
-Tool fully works only if binary file enable
+This is a prototype, it contains several bugs and lack of features. I'm not responsible for your lost, please be careful.
+Tool only works if MySQL database enabled binary log
 Contributed by Anson Tan
