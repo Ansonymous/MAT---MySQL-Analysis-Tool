@@ -20,7 +20,7 @@ Type 'man' in the tool will show all commands and descriptions. Suggest to read 
 - Added shortcut commands in “man” command list
 - Colour print output for “analyze binary” command
 
-- v1.3 will update soon
+- v1.3 will release soon
 - Added 'save output' command for saving previous output into a file
 
 # Warning
