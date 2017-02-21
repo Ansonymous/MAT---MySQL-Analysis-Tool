@@ -1,4 +1,4 @@
-# MAT - Mysql Analytic Tool
+# MAT - Mysql Analysis Tool
 
 MAT is a simple tool that used to analyze Mysql database after attacked by hackers. It is able to create image file for entire Mysql directory and analyze the log files. This tool provides fastest and easiest way to analyze Mysql database to find out which data had been modified, inserted or deleted after an attack. 
 
