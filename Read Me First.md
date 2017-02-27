@@ -20,8 +20,10 @@ Type 'man' in the tool will show all commands and descriptions. Suggest to read 
 - Added shortcut commands in “man” command list
 - Colour print output for “analyze binary” command
 
-- v1.3 will release soon
+- Release v1.3, Feb 27
 - Added 'save output' command for saving previous output into a file
+- Added 'num state' command for counting number of changes including insert, delete and update statement
+- Bugs fixed and improved performance
 
 # Warning
 This is a prototype, it contains several bugs and lack of features. I'm not responsible for your lost, please be careful.
