@@ -25,6 +25,11 @@ Type 'man' in the tool will show all commands and descriptions. Suggest to read 
 - Added 'num state' command for counting number of changes including insert, delete and update statement
 - Bugs fixed and improved performance
 
+- v1.4 will release soon
+- Added 'show tables' command for showing tables in MySQL database
+- Added 'show databases' command for showing database name and number of tables in MySQL database
+- Bugs fixed and improved performance
+
 # Warning
 This is a prototype, it contains several bugs and lack of features. I'm not responsible for your lost, please be careful.
 Tool only works if MySQL database enabled binary log
