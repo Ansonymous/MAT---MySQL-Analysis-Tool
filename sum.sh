@@ -1,11 +1,14 @@
 #!/bin/bash
 
-mysqlbinlog --base64-output=decode-rows -vv ~/Downloads/mysql-iso/logfile | awk \
+mysqlbinlog --base64-output=decode-rows -vv /usr/bin/MAT/logfile | awk \
 'BEGIN {s_type=""; s_count=0;count=0;insert_count=0;update_count=0;delete_count=0;flag=0;} \
-{if (match($0, /#16./)) {printf "\nTimestamp : " $1 " " $2 " \033[32mTable : " $(NF-4) "\033[0m"; flag=1} \
+{if (match($0, /#17./)) {printf "\nTimestamp : " $1 " " $2 " \033[32mTable : " $(NF-4) "\033[0m"; flag=1} \
 else if (match($0, /update./)) {printf "\nTimestamp : \033[33m" $1 " " $2 " " $3 " " $4 " " $(NF);count=count+1;update_count=update_count+1;s_type="UPDATE"; s_count=s_count+1;} \
-else if (match($0, /insert./)) {printf "\nTimestamp : " $1 " " $2 " " $3 " " $4 " " $(NF);count=count+1;insert_count=insert_count+1;s_type="INSERT"; s_count=s_count+1;} \
-else if (match($0, /delete./)) {printf "\nTimestamp : " $1 " " $2 " " $3 " " $4 " " $(NF);count=count+1;delete_count=delete_count+1;s_type="DELETE"; s_count=s_count+1;} \
+else if (match($0, /insert./)) {printf "\nTimestamp : \033[33m" $1 " " $2 " " $3 " " $4 " " $(NF);count=count+1;insert_count=insert_count+1;s_type="INSERT"; s_count=s_count+1;} \
+else if (match($0, /delete./)) {printf "\nTimestamp : \033[33m" $1 " " $2 " " $3 " " $4 " " $(NF);count=count+1;delete_count=delete_count+1;s_type="DELETE"; s_count=s_count+1;} \
+else if (match($0, /UPDATE./)) {printf "\nTimestamp : \033[33m" $1 " " $2 " " $3 " " $4 " " $(NF) " \033[0m ";count=count+1;update_count=update_count+1;s_type="UPDATE"; s_count=s_count+1;} \
+else if (match($0, /INSERT./)) {printf "\nTimestamp : \033[33m" $1 " " $2 " " $3 " " $4 " " $(NF) " \033[0m ";count=count+1;insert_count=insert_count+1;s_type="INSERT"; s_count=s_count+1;} \
+else if (match($0, /DELETE./)) {printf "\nTimestamp : \033[33m" $1 " " $2 " " $3 " " $4 " " $(NF) " \033[0m ";count=count+1;delete_count=delete_count+1;s_type="DELETE"; s_count=s_count+1;} \
 else if (match($0, /(INSERT INTO .*..*)/)) {count=count+1;insert_count=insert_count+1;s_type="INSERT"; s_count=s_count+1;}  \
 else if (match($0, /(UPDATE .*..*)/)) {count=count+1;update_count=update_count+1;s_type="UPDATE"; s_count=s_count+1;} \
 else if (match($0, /(DELETE FROM .*..*)/)) {count=count+1;delete_count=delete_count+1;s_type="DELETE"; s_count=s_count+1;}  \

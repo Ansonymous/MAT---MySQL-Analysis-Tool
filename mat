@@ -3,9 +3,9 @@
 '''
 MySQL Analysis Tool
 
-MAT is a simple tool that created by Python language which used to analyze Mysql directory files. It is able to create image file for entire Mysql directory and analyze the log files from the image. This tool provides fastest and easiest way to analyze Mysql database to find out which data had been modified, inserted or deleted after an attack.
+MAT is a simple tool that created by Python language which used to analyze MySQL directory files. It is able to create image file for entire MySQL directory and analyze the log files from the image. This tool provides fastest and easiest way to analyze MySQL database to find out which data had been modified, inserted or deleted after an attack.
 
-This tool is a prototype, may contain several bugs and lack of features. 
+Version 1.4, may contain several bugs and lack of features. 
 
 Contributed by Anson Tan
 '''
@@ -17,40 +17,8 @@ import hashlib
 
 #command list
 def man():
-	print '\nMySQL Analysis tool command list and description\n'
-	print '-----------------------------------------------------'
-	print '        Command		|         Description'
-	print '-----------------------------------------------------'
-	print 'detect mysql		| detect MySQL directory in operating system'
-	print 'show binary		| show binary file'
-	print 'show log		| show log files'
-	print 'show history		| show mysql history'
-	print 'show error		| show error log'
-	print 'show query		| show general query file'
-	print 'analyze binary		| analyze binary file, such as analyze binary mysql000.000'
-	print 'create mysql		| create mysql image file'
-	print 'mount mysql.iso		| mount an image file called mysql.iso'
-	print 'unmount mysql.iso	| unmount an image file called mysql.iso'
-	print 'num state		| highest number of insert/delete/update statements'
-	print 'save output		| save previous output'
-	print 'hash mysql.iso		| calculate hash number for mysql.iso'
-	print 'version			| show tool version'
-	print 'clear			| clear screen'
-	print '-----------------------------------------------------'
-	print '        Command		|      shortcut command'
-	print '-----------------------------------------------------'
-	print 'detect mysql		| det mysql'
-	print 'show binary		| s binary, s bin'
-	print 'show log		| s log'
-	print 'show history		| s history, s his'
-	print 'show error		| s error, s err'
-	print 'show query		| s query, s que'
-	print 'analyze binary		| ana bin, an bin'
-	print 'create mysql		| c mysql'
-	print 'mount mysql.iso		| m mysql.iso'
-	print 'unmount mysql.iso	| un mysql.iso'
-	print 'save output		| save out'
-	print 'hash mysql.iso		| h mysql.iso'
+	
+	os.system('more /usr/bin/man')
 	forensic(result)
 		
 #command line
@@ -62,33 +30,66 @@ def forensic(result):
 
 	#show binary file	
 	if option == 'show binary' or option == 's binary' or option == 's bin':
-		#Accept binary file name from user input
+	
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input('\nEnter image file : ')
+
+		#accept binary file name from user input
+		os.system('ls -l 2>/dev/null  | find /usr/bin/MAT/' + imagename + ' -type f -name "mysql*" | cut -d"/" -f6 | uniq')
 		binaryfile = raw_input('\nEnter binary file name: ')
-		#Read binary file
-		os.system('mysqlbinlog ~/Downloads/mysql-iso/' + binaryfile)
-		result = 'mysqlbinlog ~/Downloads/mysql-iso/' + binaryfile
+		#read binary file
+		os.system('mysqlbinlog /usr/bin/MAT/' + imagename + '/' + binaryfile)
+		result = 'mysqlbinlog /usr/bin/MAT/' + imagename + '/' + binaryfile
 		forensic(result)
 
 	#show log files
 	elif option == 'show log' or option == 's log':
 
-		os.system("ls -la ~/Downloads/mysql-iso")
-		result = 'ls -la ~/Downloads/mysql-iso'
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input('\nEnter image file : ')
+		
+		#show log files
+		os.system("ls -la /usr/bin/MAT/" + imagename)
+		result = 'ls -la /usr/bin/MAT/' + imagename
 		forensic(result)
 
-	#show mysql history
+	#show MySQL history
 	elif option == 'show history' or option == 's history' or option == 's his':
 
-		os.system('cat /home/wk/.mysql_history')
-		result = 'cat /home/wk/.mysql_history'
+		#show MySQL history
+		os.system('cat ~/.mysql_history')
+		result = 'cat ~/.mysql_history'
+		forensic(result)
+
+	#show tables
+	elif option == 'show tables' or option == 's t' or option == 's tables' or option == 's table':
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input('\nEnter image file : ')
+		
+		os.system('find /usr/bin/MAT/' + imagename + ' -type f -name "*.frm" 2>/dev/null')
+		result = 'find /usr/bin/MAT/' + imagename + ' -type f -name "*.frm" 2>/dev/null'
+		forensic(result)
+
+	#show databases and number of tables
+	elif option == 'show databases' or option == 's db' or option == 's database' or option == 's databases':
+
+
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input('\nEnter image file : ')
+
+		os.system('find /usr/bin/MAT/' + imagename + ' -type f -name "*.frm" 2>/dev/null | cut -d"/" -f6 | sort | uniq -c | sort -nr')
+		result = 'find /usr/bin/MAT/' + imagename + ' -type f -name "*.frm" 2>/dev/null | cut -d"/" -f6 | sort | uniq -c | sort -nr'
 		forensic(result)
 
 	#show error log
 	elif option == 'show error' or option == 's error' or option == 's err':
 
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input('\nEnter image file : ')
+
 		print '\nError Log\n'
-		os.system('cat ~/Downloads/mysql-iso/error.log')
-		result = 'cat ~/Downloads/mysql-iso/error.log'
+		os.system('cat /usr/bin/MAT/' + imagename + '/error.log')
+		result = 'cat /usr/bin/MAT/' + imagename + '/error.log'
 		forensic(result)
 
 	#detect mysql directory
@@ -101,63 +102,75 @@ def forensic(result):
 	#show general query file
 	elif option == 'show query' or option == 's query' or option == 's que':
 
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input('\nEnter image file : ')
+
 		print '\nGeneral Query Log\n'
-		os.system('cat ~/Downloads/mysql-iso/mysql.log')
-		result = 'cat ~/Downloads/mysql-iso/mysql.log'
+		os.system('cat /usr/bin/MAT/' + imagename + '/mysql.log')
+		result = 'cat /usr/bin/MAT/' + imagename + '/mysql.log'
 		forensic(result)
 
 	#create mysql image file
-	elif option == 'create mysql' or option == 'c mysql':
+	elif option == 'create image' or option == 'c image':
 
 		con = raw_input("May takes a while to backup, type 'Y' to proceed or 'R' to return : ")
-		if con == 'Y' or con == 'Yes':
-			os.system('sudo mkisofs -o ~/Downloads/mysql.iso /var/lib/mysql')
-			print hashlib.md5(open('/home/wk/Downloads/mysql.iso', 'rb').read()).hexdigest()
-			print '\n'
-		
-		########### calculate Hash value after created image
+		if con == 'Y' or con == 'Yes' or con == 'y':
+			imagename = raw_input("\nEnter image name : ")
+			os.system('sudo mkisofs -o /usr/bin/MAT/' + imagename + '.iso' + ' /var/lib/mysql')
+			print '\nMD5 Hash\n' + hashlib.md5(open('/usr/bin/MAT/' + imagename + '.iso', 'rb').read()).hexdigest()
+			print imagename + ' is successfully created'
+			forensic(result)
 
-		elif con == 'R':
+		elif con == 'R' or con == 'r' or con == 'return':
 			forensic(result)
 		else:
 			print 'Invalid option'
 			forensic(result)
 
 	#mount mysql image file
-		######### Calculate hash value before mount image
-	elif option == 'mount mysql.iso' or option == 'm mysql.iso':
+	elif option == 'mount image' or option == 'm image':
 
-		os.system('sudo mkdir ~/Downloads/mysql-iso')
-		os.system('sudo mount -o loop ~/Downloads/mysql.iso ~/Downloads/mysql-iso')
-		print hashlib.md5(open('/home/wk/Downloads/mysql.iso', 'rb').read()).hexdigest()
-		forensic(result)
-
-	#calculate hash for Mysql image file using MD5
-	elif option == 'hash mysql.iso' or option == 'h mysql.iso':
-
-		print hashlib.md5(open('/home/wk/Downloads/mysql.iso', 'rb').read()).hexdigest()
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type f | cut -d"/" -f5 | uniq')
+		imagename = raw_input("\nEnter image name : ")
+		os.system('sudo mkdir /usr/bin/MAT/' + imagename)
+		os.system('sudo mount -o loop /usr/bin/MAT/' + imagename + '.iso' + ' /usr/bin/MAT/' + imagename)
+		print '\nMD5 Hash\n' + hashlib.md5(open('/usr/bin/MAT/' + imagename + '.iso', 'rb').read()).hexdigest()
+		print imagename + ' is successfully mounted'
 		forensic(result)
 
 	#unmount mysql image flle
-	elif option == 'unmount mysql.iso' or option == 'un mysql.iso':
+	elif option == 'unmount image' or option == 'un image':
 
-		os.system('sudo umount ~/Downloads/mysql-iso')
-		#successed then print, 2>
-		print 'ISO is successfully unmounted'
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input("\nEnter image name : ")
+		os.system('sudo umount /usr/bin/MAT/' + imagename)
+		print imagename + ' is successfully unmounted'
+		forensic(result)
+
+	#calculate hash for Mysql image file using MD5
+	elif option == 'hash image' or option == 'h image':
+	
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type f | cut -d"/" -f5 | uniq')
+		imagename = raw_input("\nEnter image name : ")
+		print '\nMD5 Hash\n' + hashlib.md5(open('/usr/bin/MAT/' + imagename + '.iso', 'rb').read()).hexdigest()
 		forensic(result)
 
 	#analyze binary file
 	elif option == 'analyze binary' or option == 'ana bin' or option == 'an bin':
 
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input("\nEnter image name : ")
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/' + imagename + ' -type f -name "mysql*" | cut -d"/" -f6 | uniq')
 		#Accept binary file name
-		filename = raw_input('Please input file name : ')
+		filename = raw_input('\nEnter file name : ')
+		output = imagename + '/' + filename
 		#Open sum.sh but read only
 		f1 = open('/usr/bin/sum.sh', 'r')
 		#Open analyze.sh but write only
 		f2 = open('/usr/bin/analyze.sh', 'w')
 		for line in f1:
 			#Copy all lines from sum.sh and replace user input into analyze.sh
-			f2.write(line.replace('logfile', filename))
+			f2.write(line.replace('logfile', output))
 		f1.close()
 		f2.close()
 		#Execute analyze.sh
@@ -167,16 +180,20 @@ def forensic(result):
 
 	#highest number of insert/delete/update statements
 	elif option == 'num state':
-
+		
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		imagename = raw_input("\nEnter image name : ")
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/' + imagename + ' -type f -name "mysql*" | cut -d"/" -f6 | uniq')
 		#Accept binary file name
-		filename = raw_input('Please input file name : ')
+		filename = raw_input('\nEnter file name : ')
+		output = imagename + '/' + filename
 		#Open sum.sh but read only
 		f1 = open('/usr/bin/sum.sh', 'r')
 		#Open analyze.sh but write only
 		f2 = open('/usr/bin/analyze.sh', 'w')
 		for line in f1:
 			#Copy all lines from sum.sh and replace user input into analyze.sh
-			f2.write(line.replace('logfile', filename))
+			f2.write(line.replace('logfile', output))
 		f1.close()
 		f2.close()
 		#Execute analyze.sh
@@ -186,9 +203,6 @@ def forensic(result):
 		print '\n'
 		os.system(". /usr/bin/analyze.sh | grep UPDATE |cut -d':' -f2 | sort | uniq -c | sort -nr")
 		forensic(result)
-
-	
-	############ restore mysql file?
 
 	#mat command list and description
 	elif option == 'man':
@@ -203,7 +217,7 @@ def forensic(result):
 
 	elif option == 'version':
 
-		print 'MySQL Analysis Tool v1.3, contributed by Anson Tan'
+		print 'MySQL Analysis Tool v1.4, contributed by Anson Tan'
 		forensic(result)
 
 	#exit program
@@ -211,27 +225,32 @@ def forensic(result):
 
 		sys.exit(1)
 
-
-
 	#save output for binary file
 	elif option == 'save output' or option == 'save out':
 		#input filename for binary file output
-		filename = raw_input("Please enter filename for the output > ")
+		filename = raw_input("Enter filename for the output > ")
 		os.system(result + '>' + filename + '.txt')
 		print filename + ' is successfully saved'
 		forensic(result)
 	#return to forensic function after accepted invalid input
 	else:
-
 		print 'Invalid option'
 		forensic(result)
 		
 #Display menu options
 #Menu options
-print '***********************************'
-print '*                MAT              *'
-print '*     MYSQL Analysis Tool v1.3    *'
-print '***********************************'
+
+if (os.path.isdir("/usr/bin/MAT")) == 1:
+	print '***********************************'
+	print '*                MAT              *'
+	print '*     MySQL Analysis Tool v1.4    *'
+	print '***********************************'
+else:
+	os.system('mkdir /usr/bin/MAT')
+	print '***********************************'
+	print '*                MAT              *'
+	print '*     MySQL Analysis Tool v1.4    *'
+	print '***********************************'
 
 result = ""
 forensic(result)

@@ -1,0 +1,42 @@
+
+
+MySQL Analysis tool command list and description
+
+-----------------------------------------------------
+       Command		|         Description
+-----------------------------------------------------
+detect mysql		| Detect MySQL directory in operating system
+show binary		| Show binary file
+show log		| Show log files
+show history		| Show mysql history
+show error		| Show error log
+show query		| Show general query file
+show tables		| Show tables in MySQL databases
+show databases		| Show database name and number of tables
+analyze binary		| Analyze binary file and look for changed data
+create image		| Create an image file of MySQL directory
+mount image		| Mount an image file
+unmount image		| Unmount an image file
+num state		| Highest number of insert/delete/update statements
+save output		| Save previous output
+hash mysql.iso		| Calculate hash number for mysql.iso
+version			| Show tool version
+clear			| Clear screen
+exit			| Exit program
+-----------------------------------------------------
+        Command		|      shortcut command
+-----------------------------------------------------
+detect mysql		| det mysql
+show binary		| s binary, s bin
+show log		| s log
+show history		| s history, s his
+show error		| s error, s err
+show query		| s query, s que
+show tables		| s t, s tables, s table
+show databases		| s db, s databases, s database
+analyze binary		| ana bin, an bin
+create image		| c mysql
+mount image		| m mysql.iso
+unmount image		| un mysql.iso
+save output		| save out
+hash mysql.iso		| h mysql.iso
