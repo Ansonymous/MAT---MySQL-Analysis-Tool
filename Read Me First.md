@@ -1,6 +1,6 @@
 # MAT - MySQL Analysis Tool
 
-MAT is a simple tool that used to analyze MySQL database after attacked by hackers. It is able to create image file for entire MySQL directory and analyze the log files. This tool provides fastest and easiest way to analyze MySQL database to find out which data had been modified, inserted or deleted after an attack. 
+MAT is a simple tool that used to analyze MySQL database. It is able to create image file for entire MySQL directory and analyze the log files. This tool provides fastest and easiest way to analyze MySQL database to find out which data had been modified, inserted or deleted after an attack. 
 
 # Recommended
 Copy paste all files into /usr/bin/, this will allow you to run file directly with "mat" instead of "python mat.py". Run commands - "chmod +x sum.sh", "chmod +x mat.py" for executable files. 
@@ -25,12 +25,12 @@ Type 'man' in the tool will show all commands and descriptions. Suggest to read 
 - Added 'num state' command for counting number of changes including insert, delete and update statement
 - Bugs fixed and improved performance
 
-- v1.4 will release soon
+- Release v1.4, Feb 28
 - Added 'show tables' command for showing tables in MySQL database
 - Added 'show databases' command for showing database name and number of tables in MySQL database
 - Bugs fixed and improved performance
 
 # Warning
-This is a prototype, it contains several bugs and lack of features. I'm not responsible for your lost, please be careful.
+This is not a complete project, it contains several bugs and lack features. I'm not responsible for your lost, please be careful.
 Tool only works if MySQL database enabled binary log
 Contributed by Anson Tan
