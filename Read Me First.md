@@ -3,7 +3,7 @@
 MAT is a simple tool that used to analyze MySQL database. It is able to create image file for entire MySQL directory and analyze the log files. This tool provides fastest and easiest way to analyze MySQL database to find out which data had been modified, inserted or deleted after an attack. 
 
 # Installation
-Copy paste all files into /usr/bin/, this will allow you to run file directly with "mat" command on command terminal instead of "python mat". Run commands - "chmod +x sum.sh", "chmod +x mat.py" to grants file executable. 
+Download MAT zip file from GitHub and extract on Linux. To install MAT, cd into the extracted directory and run ". installer.sh" on command terminal. 
 
 # MAT tutorial
 Type 'man' in the tool will show all commands and descriptions. Suggest to read all commands and description before using it.
