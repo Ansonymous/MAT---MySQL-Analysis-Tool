@@ -6,7 +6,7 @@ MAT is a simple tool that used to analyze MySQL database. It is able to create i
 Download MAT zip file from GitHub and extract on Linux. To install MAT, cd into the extracted directory and run ". installer.sh" on command terminal. 
 
 # MAT tutorial
-Type 'man' in the tool will show all commands and descriptions. Suggest to read all commands and description before using it.
+Type 'man' in the tool will show all commands and descriptions. Suggest to read all commands and description before using it. MAT zip file contains sample MySQL database for testing the tool.
 
 # Updated
 - Released v1.1, Jan 10
@@ -29,6 +29,12 @@ Type 'man' in the tool will show all commands and descriptions. Suggest to read 
 - Added 'show tables' command for showing tables in MySQL database
 - Added 'show databases' command for showing database name and number of tables in MySQL database
 - Bugs fixed and improved performance
+
+- Release v1.4.1, Mar 08
+- Added installer for user to install all needed files
+- Added sample MySQL Database for testing MAT
+- Bugs fixed
+
 
 # Warning
 This is not a complete project, it contains several bugs and lack features. I'm not responsible for your lost, please be careful.
