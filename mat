@@ -240,17 +240,10 @@ def forensic(result):
 #Display menu options
 #Menu options
 
-if (os.path.isdir("/usr/bin/MAT")) == 1:
-	print '***********************************'
-	print '*                MAT              *'
-	print '*     MySQL Analysis Tool v1.4.1  *'
-	print '***********************************'
-else:
-	os.system('sudo mkdir /usr/bin/MAT')
-	print '***********************************'
-	print '*                MAT              *'
-	print '*     MySQL Analysis Tool v1.4.1  *'
-	print '***********************************'
+print '***********************************'
+print '*                MAT              *'
+print '*     MySQL Analysis Tool v1.4.1  *'
+print '***********************************'
 
 result = ""
 forensic(result)

@@ -19,15 +19,15 @@ COMMIT;
 
 
 use rea;
-create table Customer (
-   Id int identity,
-   FirstName nvarchar(40) not null,
-   LastName nvarchar(40) not null,
-   City nvarchar(40) null,
-   Country nvarchar(40) null,
-   Phone nvarchar(20) null,
-   constraint PK_CUSTOMER primary key (Id)
-) engine = InooDB;
+create table Customer
+(
+  Id int NOT NULL,
+  FirstName VARCHAR(40) NOT NULL,
+  LastName VARCHAR(40) NOT NULL,
+  City VARCHAR(40) NOT NULL,
+  Country VARCHAR(40) NULL,
+  Phone VARCHAR(20) NULL
+) ENGINE = InooDB;
 START TRANSACTION;
 INSERT INTO Customer VALUES(1,'Maria','Anders','Berlin','Germany','030-0074321');
 INSERT INTO Customer VALUES(2,'Ana','Trujillo','México D.F.','Mexico','(5) 555-4729');
@@ -39,6 +39,7 @@ DELETE FROM Customer WHERE id = 2;
 INSERT INTO Customer VALUES(6,'Hanna','Moos','Mannheim','Germany','0621-08460');
 INSERT INTO Customer VALUES(7,'Frédérique','Citeaux','Strasbourg','France','88.60.15.31');
 UPDATE Customer SET FirstName = 'Aaron' WHERE id = 7;
+COMMIT;
 
 
 
