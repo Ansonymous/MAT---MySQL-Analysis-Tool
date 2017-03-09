@@ -1,0 +1,47 @@
+use cap;
+CREATE TABLE category
+(
+  id   INT NOT NULL,
+  categoryname VARCHAR(20) NOT NULL,
+  description VARCHAR(200) NOT NULL
+) ENGINE = InnoDB;
+START TRANSACTION;
+INSERT INTO category VALUES(1, 'Beverages', 'Soft drinks, coffees, teas, beers, and ales');
+INSERT INTO category VALUES(2, 'Condiments', 'Sweet and savory sauces, relishes, spreads, and seasonings');
+INSERT INTO category VALUES(3, 'Confections', 'Desserts, candies, and sweet breads');
+INSERT INTO category VALUES(4, 'Dairy Products', 'Cheeses');
+INSERT INTO category VALUES(5, 'Grains/Cereals', 'Breads, crackers, pasta, and cereal');
+INSERT INTO category VALUES(6, 'Meat/Poultry', 'Prepared meats');
+UPDATE category SET categoryname = 'Drinks' WHERE id = 1;
+UPDATE category SET categoryname = 'Bread' WHERE id = 5;
+DELETE FROM category WHERE id = 4;
+COMMIT;
+
+
+use rea;
+create table Customer (
+   Id int identity,
+   FirstName nvarchar(40) not null,
+   LastName nvarchar(40) not null,
+   City nvarchar(40) null,
+   Country nvarchar(40) null,
+   Phone nvarchar(20) null,
+   constraint PK_CUSTOMER primary key (Id)
+) engine = InooDB;
+START TRANSACTION;
+INSERT INTO Customer VALUES(1,'Maria','Anders','Berlin','Germany','030-0074321');
+INSERT INTO Customer VALUES(2,'Ana','Trujillo','México D.F.','Mexico','(5) 555-4729');
+INSERT INTO Customer VALUES(3,'Wang','Lin','beijing','China','(5) 555-3932');
+UPDATE Customer SET FirstName = 'Jeremy' WHERE LastName = 'Wang';
+INSERT INTO Customer VALUES(4,'Thomas','Hardy','London','UK','(171) 555-7788');
+INSERT INTO Customer VALUES(5,'Christina','Berglund','Luleå','Sweden','0921-12 34 65');
+DELETE FROM Customer WHERE id = 2;
+INSERT INTO Customer VALUES(6,'Hanna','Moos','Mannheim','Germany','0621-08460');
+INSERT INTO Customer VALUES(7,'Frédérique','Citeaux','Strasbourg','France','88.60.15.31');
+UPDATE Customer SET FirstName = 'Aaron' WHERE id = 7;
+
+
+
+
+
+INSERT INTO [Customer] ([Id],[FirstName],[LastName],[City],[Country],[Phone])VALUES(14,'Yang','Wang','Bern','Switzerland','0452-076545')
