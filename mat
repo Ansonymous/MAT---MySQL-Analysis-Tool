@@ -5,7 +5,7 @@ MySQL Analysis Tool
 
 MAT is a simple tool that created by Python language which used to analyze MySQL directory files. It is able to create image file for entire MySQL directory and analyze the log files from the image. This tool provides fastest and easiest way to analyze MySQL database to find out which data had been modified, inserted or deleted after an attack.
 
-Version 1.4, may contain several bugs and lack of features. 
+Version 1.4.1, may contain several bugs and lack of features. 
 
 Contributed by Anson Tan
 '''
@@ -132,9 +132,9 @@ def forensic(result):
 
 		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type f | cut -d"/" -f5 | uniq')
 		imagename = raw_input("\nEnter image name : ")
-		os.system('sudo mkdir /usr/bin/MAT/' + imagename)
+		os.system('sudo mkdir /usr/bin/MAT/' + imagename + ' 2>/dev/null')
 		os.system('sudo mount -o loop /usr/bin/MAT/' + imagename + '.iso' + ' /usr/bin/MAT/' + imagename)
-		print '\nMD5 Hash\n' + hashlib.md5(open('/usr/bin/MAT/' + imagename + '.iso', 'rb').read()).hexdigest()
+		#print '\nMD5 Hash\n' + hashlib.md5(open('/usr/bin/MAT/' + imagename + '.iso', 'rb').read()).hexdigest()
 		print imagename + ' is successfully mounted'
 		forensic(result)
 
@@ -152,7 +152,7 @@ def forensic(result):
 	
 		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type f | cut -d"/" -f5 | uniq')
 		imagename = raw_input("\nEnter image name : ")
-		print '\nMD5 Hash\n' + hashlib.md5(open('/usr/bin/MAT/' + imagename + '.iso', 'rb').read()).hexdigest()
+		#print '\nMD5 Hash\n' + hashlib.md5(open('/usr/bin/MAT/' + imagename + '.iso', 'rb').read()).hexdigest()
 		forensic(result)
 
 	#analyze binary file
