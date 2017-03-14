@@ -1,3 +1,7 @@
+mysql -uroot -p
+create user 'test'@'localhost' identified by 'testmysql';
+mysql -utest -ptestmysql
+
 CREATE TABLE category
 (
   id   INT NOT NULL,
