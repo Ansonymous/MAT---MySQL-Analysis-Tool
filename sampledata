@@ -38,9 +38,3 @@ INSERT INTO Customer VALUES(6,'Hanna','Moos','Mannheim','Germany','0621-08460');
 INSERT INTO Customer VALUES(7,'Frédérique','Citeaux','Strasbourg','France','88.60.15.31');
 UPDATE Customer SET FirstName = 'Aaron' WHERE id = 7;
 COMMIT;
-
-
-
-
-
-INSERT INTO [Customer] ([Id],[FirstName],[LastName],[City],[Country],[Phone])VALUES(14,'Yang','Wang','Bern','Switzerland','0452-076545')
