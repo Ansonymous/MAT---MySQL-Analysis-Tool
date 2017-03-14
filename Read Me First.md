@@ -10,6 +10,15 @@ MAT is a simple tool that used to analyze MySQL database. It is able to create i
 # MAT tutorial
 Type 'man' in the tool will show all commands and descriptions. Suggest to read all commands and description before using it. MAT zip file contains sample MySQL database for testing the tool.
 
+Create MySQL User
+- mysql -uroot -p
+- create user 'test'@'localhost' identified by 'testmysql';
+- mysql -utest -ptestmysql
+
+Enable Binary Log
+- /etc/mysql/my.cnf
+- Remove "#" for log-bin = /path/to/log
+
 # Updated
 - Release v1.4.1, Mar 08
 - Added installer for user to install all needed files
