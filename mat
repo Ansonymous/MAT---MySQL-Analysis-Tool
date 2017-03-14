@@ -8,6 +8,8 @@ MAT is a simple tool that created by Python language which used to analyze MySQL
 Version 1.4.1, may contain several bugs and lack of features. 
 
 Contributed by Anson Tan
+
+https://github.com/Ansonymous/mat
 '''
 
 import os
@@ -218,6 +220,7 @@ def forensic(result):
 	elif option == 'version':
 
 		print 'MySQL Analysis Tool v1.4.1, contributed by Anson Tan'
+		print 'https://github.com/Ansonymous/mat'
 		forensic(result)
 
 	#exit program
