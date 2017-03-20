@@ -12,8 +12,9 @@ Type 'man' in the tool will show all commands and descriptions. Suggest to read 
 
 Create MySQL User
 - mysql -uroot -p
-- create user 'test'@'localhost' identified by 'testmysql';
-- mysql -utest -ptestmysql
+- create user 'rea'@'localhost' identified by 'reatest';
+- grant all privileges on * . * to 'rea'@'localhost';
+- mysql -urea -preatest
 
 Enable Binary Log
 - /etc/mysql/my.cnf
