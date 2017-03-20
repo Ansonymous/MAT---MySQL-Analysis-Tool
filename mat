@@ -5,11 +5,9 @@ MySQL Analysis Tool
 
 MAT is a simple tool that created by Python language which used to analyze MySQL directory files. It is able to create image file for entire MySQL directory and analyze the log files from the image. This tool provides fastest and easiest way to analyze MySQL database to find out which data had been modified, inserted or deleted after an attack.
 
-Version 1.4.1, may contain several bugs and lack of features. 
+Version 1.4.2, may contain several bugs and lack of features. 
 
 Contributed by Anson Tan
-
-https://github.com/Ansonymous/mat
 '''
 
 import os
@@ -206,6 +204,21 @@ def forensic(result):
 		os.system(". /usr/bin/analyze.sh | grep UPDATE |cut -d':' -f2 | sort | uniq -c | sort -nr")
 		forensic(result)
 
+	#show table structure
+	elif option == 'table structure' or option == 't s':
+		#show directories
+		os.system('ls -l 2>/dev/null | find /usr/bin/MAT/ -type d | cut -d"/" -f5 | uniq')
+		#accept image name
+		imagename = raw_input("\nEnter image name : ")
+		#show table names
+		os.system('find /usr/bin/MAT/' + imagename + ' -type f -name "*.frm" 2>/dev/null')
+		filename = raw_input("\nEnter full path from above table : ")
+		os.system('mysqlfrm --diagnostic ' + filename)
+
+		result = 'mysqlfrm --diagnostic ' + filename
+		forensic(result)
+		
+
 	#mat command list and description
 	elif option == 'man':
 
@@ -219,8 +232,7 @@ def forensic(result):
 
 	elif option == 'version':
 
-		print 'MySQL Analysis Tool v1.4.1, contributed by Anson Tan'
-		print 'https://github.com/Ansonymous/mat'
+		print 'MySQL Analysis Tool v1.4.2, contributed by Anson Tan'
 		forensic(result)
 
 	#exit program
@@ -233,6 +245,8 @@ def forensic(result):
 		#input filename for binary file output
 		filename = raw_input("Enter filename for the output > ")
 		os.system(result + '>' + filename + '.txt')
+		os.system('pwd')
+		os.system('ls -la ' + filename +  '.txt')
 		print filename + ' is successfully saved'
 		forensic(result)
 	#return to forensic function after accepted invalid input
@@ -245,7 +259,7 @@ def forensic(result):
 
 print '***********************************'
 print '*                MAT              *'
-print '*     MySQL Analysis Tool v1.4.1  *'
+print '*     MySQL Analysis Tool v1.4.2  *'
 print '***********************************'
 
 result = ""

@@ -18,6 +18,7 @@ create image		| Create an image file of MySQL directory
 mount image		| Mount an image file
 unmount image		| Unmount an image file
 num state		| Highest number of insert/delete/update statements
+table structure		| Show table structure
 save output		| Save previous output
 hash mysql.iso		| Calculate hash number for mysql.iso
 version			| Show tool version
@@ -35,6 +36,7 @@ show query		| s query, s que
 show tables		| s t, s tables, s table
 show databases		| s db, s databases, s database
 analyze binary		| ana bin, an bin
+table structure		| t s
 create image		| c mysql
 mount image		| m mysql.iso
 unmount image		| un mysql.iso
