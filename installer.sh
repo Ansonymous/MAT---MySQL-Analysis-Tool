@@ -4,3 +4,4 @@ sudo cp sum.sh /usr/bin/sum.sh
 sudo cp man /usr/bin/man
 sudo cp mat /usr/bin/mat
 sudo mkdir /usr/bin/MAT
+sudo apt-get install mysql-utilities
