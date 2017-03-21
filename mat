@@ -116,7 +116,7 @@ def forensic(result):
 		con = raw_input("May takes a while to backup, type 'Y' to proceed or 'R' to return : ")
 		if con == 'Y' or con == 'Yes' or con == 'y':
 			imagename = raw_input("\nEnter image name : ")
-			os.system('sudo mkisofs -o /usr/bin/MAT/' + imagename + '.iso' + ' /var/log/mysql')
+			os.system('sudo mkisofs -o /usr/bin/MAT/' + imagename + '.iso' + ' /var/lib/mysql')
 			print '\nMD5 Hash\n' + hashlib.md5(open('/usr/bin/MAT/' + imagename + '.iso', 'rb').read()).hexdigest()
 			print imagename + ' is successfully created'
 			forensic(result)
