@@ -1,3 +1,8 @@
+# Warning
+This is not a complete project, it contains several bugs and lack features. I'm not responsible for your lost, please be careful.
+Tool only works if MySQL database enabled binary log
+Contributed by Anson Tan
+
 # MAT - MySQL Analysis Tool
 
 MAT is a simple tool that used to analyze MySQL database. It is able to create image file for entire MySQL directory and analyze the log files. This tool provides fastest and easiest way to analyze MySQL database to find out which data had been modified, inserted or deleted. 
@@ -46,9 +51,3 @@ Enable Binary Log
 - Added ‘man’ command which show command list and description for each command
 - Added ‘version’ command which show tool’s version
 - Added ‘clear’ command which clear terminal screen and return to main menu
-
-
-# Warning
-This is not a complete project, it contains several bugs and lack features. I'm not responsible for your lost, please be careful.
-Tool only works if MySQL database enabled binary log
-Contributed by Anson Tan
