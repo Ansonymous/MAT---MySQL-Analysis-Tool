@@ -1,7 +1,6 @@
 # Warning
-This is not a complete project, it contains several bugs and lack features. I'm not responsible for your lost, please be careful with the tool.
-Tool only works if MySQL database enabled binary log
-# Contributed by Anson Tan
+This is not a complete project, it contains several bugs and lack features. I'm not responsible for your lost, please be careful with the tool.Tool only works if binary log is enabled in MySQL
+Contributed by Anson Tan
 
 # MAT - MySQL Analysis Tool
 
